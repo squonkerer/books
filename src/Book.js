@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Book({ title, author}) {
+function Book({ title, author }) {
   const [readCount, setReadCount] = useState(0);
 
   const handleRead = () => {
@@ -8,7 +8,7 @@ function Book({ title, author}) {
   };
 
   return (
-    <div>
+    <div className='app'>
       <h2>{title}</h2>
       <p>Author: {author}</p>
       <p>Read Count: {readCount}</p>

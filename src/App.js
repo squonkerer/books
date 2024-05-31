@@ -43,13 +43,20 @@ function App() {
     setBooks([...books, newBook]);
   };
 
+  
+  const handleBookClick = (index) => {
+    setCurrentBookIndex(index);
+  };
+
   return (
     <div className="App">
       <div style={{ display: 'flex' }}>
         <div style={{ flex: 1 }}>
           <h1>List of Books</h1>
           {books.map((book, index) => (
-            <Book key={index} title={book.title} author={book.author} />
+            <div key={index} onClick={() => handleBookClick(index)}>
+              <Book title={book.title} author={book.author} />
+            </div>
           ))}
         </div>
         <div style={{ flex: 1 }}>
@@ -63,11 +70,10 @@ function App() {
               alt={books[currentBookIndex].title} 
               style={{ width: '200px', height: '300px' }} 
             />
-            <br/>
-            <div>
-              <button onClick={handlePrevious}>Previous</button>
-              <button onClick={handleNext}>Next</button>
           </div>
+          <div>
+            <button onClick={handlePrevious}>Previous</button>
+            <button onClick={handleNext}>Next</button>
           </div>
         </div>
       </div>
